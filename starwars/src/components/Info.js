@@ -1,11 +1,13 @@
-import React from 'react'
-import { UncontrolledCollapse, Button } from 'reactstrap';
+import React, {useState} from 'react'
+import { Collapse,  Button, Col } from 'reactstrap';
 
 function Info (props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
     return (
         <div>
-          <Button color="primary" id={props.id} style={{ width: "100%" }}>Characteristics</Button>
-        
+          <Button className="m-md-3" color="primary" onClick={toggle}>Characteristics</Button>
+          <Collapse isOpen={isOpen}>
             <ul className="info">
               <li><span>Born:</span> {props.birth_year}</li>
               <li><span>Birth Gender:</span> {props.gender}</li>
@@ -13,10 +15,9 @@ function Info (props) {
               <li><span>Weight (kg):</span> {props.weight}</li>
               <li><span>Eye Color:</span> {props.eye_color}</li>
               <li><span>Hair Color:</span> {props.hair_color}</li>
-            </ul>
-          
-        </div>
-        
+            </ul>  
+            </Collapse>
+        </div> 
       )
     }
 

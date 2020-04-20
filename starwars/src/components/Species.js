@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
 
-import {  Button } from 'reactstrap';
 
  function Characteristics(props) {
-  const [species, setSpecies] = useState([]);
-  
-  useEffect(() => {
+    const [species, setSpecies] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
+
+    useEffect(() => {
       axios
-      .get(props.speciesUrl)
+        .get(props.speciesUrl)
         .then(response => {
-          setSpecies(response.data);
+         setSpecies(response.data);
         })
         .catch(err => console.log(err));
   }, []);
 
   return (
     <div>
-      <Button color="primary">Species Data</Button>
+      <Button color="primary" onClick={toggle}>Species Data</Button>
+      <Collapse isOpen={isOpen}>
       {
             <ul className="info">
               <li><span>Name:</span> {species.name}</li>
@@ -30,6 +33,7 @@ import {  Button } from 'reactstrap';
             </ul>
           
       }
+      </Collapse>
     </div >
   )
 }

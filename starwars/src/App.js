@@ -41,10 +41,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
+      <h1 className="Header pb-md-5">React Wars</h1>
       <Row className="justify-content-center">
         <Col sm="6" md="5" lg="3" xl="2">
-          <Button color="primary" onClick={() => next()} style={{ width: "100%", height: '50px' }}>Prev Page</Button>
+          <Button className="pt-md5" color="primary" onClick={() => next()} style={{ width: "100%", height: '50px' }}>Prev Page</Button>
         </Col>
         <Col sm="6" md="5" lg="3" xl="2">
           <Button color="primary" onClick={() => next()} style={{ width: "100%", height: '50px' }}>Next Page</Button>
