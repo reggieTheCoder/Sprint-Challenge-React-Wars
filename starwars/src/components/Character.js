@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardBody, CardTitle } from 'reactstrap';
 import Info from "./Info";
+import Species from "./Species"
   
 
  function Character(props) {
@@ -26,7 +27,10 @@ import Info from "./Info";
         height={props.data.height}
         weight={props.data.mass}
         eye_color={props.data.eye_color}
-        hair_color={props.data.hair_color}
+        hair_color={props.data.hair_color} 
+        />
+        <Species
+        speciesUrl={props.data.species[0]}
         
         />
         
